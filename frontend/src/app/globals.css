@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #1a1a2e;
+  --ink-light: #2d2d44;
+  --parchment: #f5f0e8;
+  --parchment-dark: #e8e0d0;
+  --amber: #c8962c;
+  --amber-light: #e8b84b;
+  --sage: #4a7c59;
+  --crimson: #c0392b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--parchment);
+  color: var(--ink);
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* Sidebar */
+.sidebar-link {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200;
+}
+.sidebar-link:hover {
+  @apply bg-white/20;
+}
+.sidebar-link.active {
+  @apply bg-white text-ink shadow-sm;
+}
+
+/* Cards */
+.card {
+  @apply bg-white rounded-2xl shadow-sm border border-parchment-dark p-6;
+}
+
+/* Stat card */
+.stat-card {
+  @apply card flex flex-col gap-1;
+}
+
+/* Buttons */
+.btn-primary {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-ink text-parchment text-sm font-medium transition-all hover:bg-ink-light active:scale-95 disabled:opacity-50;
+}
+.btn-secondary {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-parchment-dark bg-white text-ink text-sm font-medium transition-all hover:bg-parchment active:scale-95 disabled:opacity-50;
+}
+.btn-danger {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-crimson text-white text-sm font-medium transition-all hover:opacity-90 active:scale-95 disabled:opacity-50;
+}
+.btn-success {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-sage text-white text-sm font-medium transition-all hover:opacity-90 active:scale-95 disabled:opacity-50;
+}
+
+/* Badge */
+.badge {
+  @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+}
+
+/* Input */
+.input {
+  @apply w-full px-3 py-2 rounded-lg border border-parchment-dark bg-white text-ink text-sm focus:outline-none focus:ring-2 focus:ring-amber-library focus:border-transparent placeholder:text-ink/40 transition;
+}
+
+/* Table */
+.table-wrap {
+  @apply w-full overflow-x-auto;
+}
+table {
+  @apply w-full text-sm;
+}
+thead tr {
+  @apply border-b border-parchment-dark;
+}
+thead th {
+  @apply text-left py-3 px-4 text-xs font-semibold uppercase tracking-wider text-ink/50;
+}
+tbody tr {
+  @apply border-b border-parchment-dark/60 hover:bg-parchment/60 transition-colors;
+}
+tbody td {
+  @apply py-3 px-4;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  @apply fixed inset-0 bg-ink/40 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+}
+.modal-box {
+  @apply bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 relative;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--parchment-dark); border-radius: 99px; }
